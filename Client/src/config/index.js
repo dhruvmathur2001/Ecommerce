@@ -103,6 +103,88 @@ export const addProductFormElements = [
   },
 ];
 
+export const shoppingViewHeaderMenuItems = [
+  {
+    id: "home",
+    label: "Home",
+    path: "/shop/home",
+  },
+  // {
+  //   id: "products",
+  //   label: "Products",
+  //   path: "/shop/listing",
+  // },
+  {
+    id: "mobiles",
+    label: "Mobiles",
+    path: "/shop/listing",
+  },
+  {
+    id: "tablets",
+    label: "Tablets",
+    path: "/shop/listing",
+  },
+  {
+    id: "tvs",
+    label: "TVs",
+    path: "/shop/listing",
+  },
+  {
+    id: "laptops",
+    label: "Laptops",
+    path: "/shop/listing",
+  },
+  {
+    id: "watches",
+    label: "Watches",
+    path: "/shop/listing",
+  },
+  // {
+  //   id: "search",
+  //   label: "Search",
+  //   path: "/shop/search",
+  // },
+];
+
+export const categoryOptionsMap = {
+  mobiles: "Mobiles",
+  tablets: "Tablets",
+  tvs: "TVs",
+  laptops: "Laptops",
+  watches: "Watches",
+};
+
+export const brandOptionsMap = {
+  dell: "Dell",
+  apple: "Apple",
+  samsung: "Samsung",
+  micromax: "Micromax",
+  sony: "Sony",
+};
+
+export const filterOptions = {
+  category: [
+    { id: "mobiles", label: "Mobiles" },
+    { id: "tablets", label: "Tablets" },
+    { id: "tvs", label: "TVs" },
+    { id: "laptops", label: "Laptops" },
+    { id: "watches", label: "Watches" },
+  ],
+  brand: [
+    { id: "dell", label: "Dell" },
+    { id: "apple", label: "Apple" },
+    { id: "samsung", label: "Samsung" },
+    { id: "micromax", label: "Micromax" },
+    { id: "sony", label: "Sony" },
+  ],
+};
+
+export const sortOptions = [
+  { id: "price-lowtohigh", label: "Price: Low to High" },
+  { id: "price-hightolow", label: "Price: High to Low" },
+  { id: "title-atoz", label: "Title: A to Z" },
+  { id: "title-ztoa", label: "Title: Z to A" },
+];
 
 
 
@@ -116,10 +198,6 @@ export const addProductFormElements = [
 
 
 
-// {
-    //     type: "password",
-    //     name: "confirmPassword",
-    //     label: "Confirm Password",
-    //     placeholder: "Confirm your password",
-    //     required: true,
-    // }, 
+
+
+
