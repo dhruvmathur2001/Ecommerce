@@ -1,1 +1,103 @@
- 
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+const initialState = {
+  isLoading: false,
+  addressList: [],
+};
+
+export const addNewAddress = createAsyncThunk(
+  "/addresses/addNewAddress",
+  async (formData) => {
+    const response = await axios.post(
+      "http://localhost:5000/api/shop/address/add",
+      formData
+    );
+    return response.data;
+  }
+);
+
+export const fetchAllAddresses = createAsyncThunk(
+  "/addresses/fetchAllAddresses",
+  async (userId) => {
+    const response = await axios.get(
+      `http://localhost:5000/api/shop/address/get/${userId}`
+    );
+    return response.data;
+  }
+);
+
+export const editaAddress = createAsyncThunk(
+  "/addresses/editaAddress",
+  async ({userId,addressId,formData}) => {
+    const response = await axios.put(
+      `http://localhost:5000/api/shop/address/update/${userId}/${addressId}`,
+      formData
+    );
+    return response.data;
+  }
+);
+
+export const deleteAddress = createAsyncThunk(
+    "/addresses/deleteAddress",
+    async ({userId,addressId}) => {
+      const response = await axios.delete(
+        `http://localhost:5000/api/shop/address/delete/${userId}/${addressId}`,
+        
+      );
+      return response.data;
+    }
+  );
+
+const addressSlice = createSlice({
+  name: "address",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(addNewAddress.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(addNewAddress.fulfilled, (state, action) => {
+      state.isLoading = false;
+    });
+    builder.addCase(addNewAddress.rejected, (state) => {
+      state.isLoading = false;
+    });
+
+    builder.addCase(fetchAllAddresses.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchAllAddresses.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.addressList = action.payload.data;
+    });
+    builder.addCase(fetchAllAddresses.rejected, (state) => {
+      state.isLoading = false;
+      state.addressList = [];
+    });
+
+    // builder.addCase(editaAddress.pending, (state) => {
+    //   state.isLoading = true;
+    // });
+    // builder.addCase(editaAddress.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.addressList = action.payload;
+    // });
+    // builder.addCase(editaAddress.rejected, (state) => {
+    //   state.isLoading = false;
+    // });
+
+    // builder.addCase(deleteAddress.pending, (state) => {
+    //   state.isLoading = true;
+    // });
+    // builder.addCase(deleteAddress.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.addressList = action.payload;
+    // });
+    // builder.addCase(deleteAddress.rejected, (state) => {
+    //   state.isLoading = false;
+    // });
+  },
+});
+
+export default addressSlice.reducer;
