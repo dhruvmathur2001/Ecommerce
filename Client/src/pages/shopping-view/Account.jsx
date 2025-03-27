@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import accImg from '../../assets/accimg1.jpg';
-import Orders from '@/components/shopping-view/Orders';
+import ShoppingOrders from '@/components/shopping-view/Orders';
 import Address from '@/components/shopping-view/Address';
 
 function ShoppingAccount() {
@@ -21,7 +21,7 @@ function ShoppingAccount() {
               <TabsTrigger value='address'>Address</TabsTrigger>
             </TabsList>
             <TabsContent value='orders'>
-              <Orders />
+              <ShoppingOrders />
             </TabsContent>
             <TabsContent value='address'>
               <Address />

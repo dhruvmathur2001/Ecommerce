@@ -10,15 +10,16 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import ShoppingOrderDetailsView from "./Order-details";
+import AdminOrderDetailsView from "./Order-details";
 
-function ShoppingOrders() {
+function AdminOrdersView() {
 
   const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Order History</CardTitle>
+        <CardTitle>All Orders</CardTitle>
       </CardHeader>
       <CardContent>
         <Table>
@@ -42,7 +43,7 @@ function ShoppingOrders() {
               <TableCell>
                 <Dialog open={openDetailsDialog} onOpenChange={setOpenDetailsDialog}>
                   <Button onClick={()=>setOpenDetailsDialog(true)}>View Details</Button>
-                  <ShoppingOrderDetailsView />
+                  <AdminOrderDetailsView />
                 </Dialog>
               </TableCell>
             </TableRow>
@@ -53,4 +54,4 @@ function ShoppingOrders() {
   );
 }
 
-export default ShoppingOrders;
+export default AdminOrdersView;

@@ -83,16 +83,16 @@ function AdminProducts() {
         });
   }
 
-  function handleDelete(getCurrentProductId){
+  function handleDelete(getCurrentProductId) {
     console.log(getCurrentProductId);
-    dispatch(deleteProduct(getCurrentProductId)).then((data)=>{
-      if(data?.payload?.success){
+    dispatch(deleteProduct(getCurrentProductId)).then((data) => {
+      if (data?.payload?.success) {
         dispatch(fetchAllProducts());
         toast({
           title: "Product deleted successfully",
         });
       }
-    });    
+    });
   }
 
   function isFormValid() {
@@ -157,7 +157,7 @@ function AdminProducts() {
               setFormData={setFormData}
               buttonText={currentEditedId !== null ? "Edit" : "Add"}
               formControls={addProductFormElements}
-              isBtnDisabled = {!isFormValid()}
+              isBtnDisabled={!isFormValid()}
             />
           </div>
         </SheetContent>
