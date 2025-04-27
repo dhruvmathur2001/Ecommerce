@@ -36,13 +36,13 @@ const createOrder = async (req, res) => {
                 name: item.title,
                 sku: item.productId,
                 price: item.price.toFixed(2),
-                currency: "INR",
+                currency: "USD",
                 quantity: item.quantity,
               };
             }),
           },
           amount: {
-            currency: "INR",
+            currency: "USD",
             total: totalAmount,
           },
           description: "This is the payment description",
@@ -83,7 +83,7 @@ const createOrder = async (req, res) => {
           success: true,
           message: "Paypal payment created successfully",
           approvalURL,
-          orderId : newlyCreated._id
+          orderId : newlyCreatedOrder._id
         });
 
       }
